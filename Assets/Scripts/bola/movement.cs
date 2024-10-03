@@ -26,11 +26,5 @@ public class movement : MonoBehaviour
         rb.velocity = new Vector3(h * speed, 0, v * speed);
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.transform.CompareTag("Collectable"))
-        {
-            Destroy(collision.gameObject);
-        }
-    }
+    
 }
