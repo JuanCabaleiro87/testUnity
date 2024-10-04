@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/bola01.unity
+    guid: 543ebaef9ae6b2845b752b320a7ff2cb
+  - enabled: 1
+    path: Assets/Scenes/bola02.unity
+    guid: 731f861386271cf408e089f12e1de105
   m_configObjects: {}

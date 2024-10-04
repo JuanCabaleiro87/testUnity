@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class collectible : MonoBehaviour
 {
+    private GameManager gm;
+    private void Start()
+    {
+            gm = FindAnyObjectByType<GameManager>();
+        
+    }
     private void OnCollisionEnter(Collision collision)
     {
-        
+
         if (collision.transform.CompareTag("Player"))
         {
-            FindAnyObjectByType<GameManager>().addCollectible();
+            gm.addCollectible();
             Destroy(gameObject);
+            
         }
     }
 
