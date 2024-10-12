@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public TMP_Text totalPoints;
     private int totalPointsNumber;
 
+    public AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +34,7 @@ public class GameManager : MonoBehaviour
 
     public void addCollectible()
     {
+        audioSource.Play();
         aquiredPoints++;
         points.text = aquiredPoints.ToString();
         

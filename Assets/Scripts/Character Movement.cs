@@ -5,7 +5,6 @@ using JetBrains.Annotations;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
-using UnityEngine.WSA;
 
 public class CharacterMovement : MonoBehaviour
 {
