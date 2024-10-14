@@ -618,7 +618,7 @@ GameObject:
   - component: {fileID: 957412858}
   - component: {fileID: 957412857}
   - component: {fileID: 957412856}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -985,6 +985,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6513430765074466637, guid: b2325c0d643527541b5b7c25c4c0f83d, type: 3}
+      propertyPath: jumpHeight
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7455995868082874269, guid: b2325c0d643527541b5b7c25c4c0f83d, type: 3}
       propertyPath: m_Name
       value: Humanoid
