@@ -9,7 +9,6 @@ public class killzone : MonoBehaviour
     {
         if (collision.transform.CompareTag("Player"))
         {
-            //Destroy(collision.gameObject);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }

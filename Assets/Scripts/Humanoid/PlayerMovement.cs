@@ -50,8 +50,8 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey("space") && isGrounded)
         {
             animator.Play("Jump");
-            Invoke("Jump", 0.5f);
-            //rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
+            //Invoke("Jump", 0.5f);
+            rb.AddForce(Vector3.up * jumpHeight, ForceMode.Impulse);
         }
     }
     public void Jump()
