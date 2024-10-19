@@ -19,9 +19,37 @@ public class ThirdPersonMove : MonoBehaviour
     //referencia a la camara
     public Transform cam;
 
+    //fuerza de gravedad
+    public float gravity = -9.8f;
+
+    //altura de salto
+    public float jumpHeight = 3;
+
+    //referencia al ground check
+    public Transform groundCheck;
+    public float groundDistance = 0.3f;
+
+    //referencia al layermask (mascara del suelo)
+    public LayerMask groundmask;
+
+    //velocidad durante el salto?
+    Vector3 jumpVelocity;
+
+    //comprobar si esta en el suelo
+    bool isGrounded;
+
 
     void Update()
     {
+        //comprobar si esta en el suelo
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundmask);
+
+        //aplica velocidad hacia abajo mientras esta en el suelo
+        if (isGrounded && jumpVelocity.y < 0)
+        {
+            jumpVelocity.y = -2f;
+        }
+        
         //Leer direccion
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical= Input.GetAxisRaw("Vertical");
@@ -45,5 +73,16 @@ public class ThirdPersonMove : MonoBehaviour
             //traslacion del modelo
             controller.Move(moveDir.normalized * speed*Time.deltaTime);
         }
+
+        //saltar
+        if(Input.GetKeyDown("space") && isGrounded)
+        {
+            jumpVelocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+        }
+
+        jumpVelocity.y += gravity * Time.deltaTime;
+
+        controller.Move(jumpVelocity * Time.deltaTime);
+
     }
 }
