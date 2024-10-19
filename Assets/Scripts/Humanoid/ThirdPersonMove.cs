@@ -38,6 +38,9 @@ public class ThirdPersonMove : MonoBehaviour
     //comprobar si esta en el suelo
     bool isGrounded;
 
+    //referencia al animator
+    public Animator animator;
+
 
     void Update()
     {
@@ -49,10 +52,29 @@ public class ThirdPersonMove : MonoBehaviour
         {
             jumpVelocity.y = -2f;
         }
-        
+
+
         //Leer direccion
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical= Input.GetAxisRaw("Vertical");
+
+        //asignar direcciones al animador
+        animator.SetFloat("Velx", horizontal);
+        animator.SetFloat("Vely", vertical);
+
+        //animacion de guardia
+        if (Input.GetKey("f"))
+        {
+            animator.SetBool("Other", false);
+            animator.Play("Guard");
+        }
+
+        //salir de guardia
+        if (horizontal != 0 || vertical != 0)
+        {
+            animator.SetBool("Other", true);
+        }
+
 
         Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
 
@@ -77,7 +99,9 @@ public class ThirdPersonMove : MonoBehaviour
         //saltar
         if(Input.GetKeyDown("space") && isGrounded)
         {
+            animator.Play("Jump");
             jumpVelocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+
         }
 
         jumpVelocity.y += gravity * Time.deltaTime;
