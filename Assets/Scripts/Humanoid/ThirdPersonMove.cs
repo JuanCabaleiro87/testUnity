@@ -99,7 +99,6 @@ public class ThirdPersonMove : MonoBehaviour
         //saltar
         if(Input.GetKeyDown("space") && isGrounded)
         {
-            Debug.Log("jump");
             animator.Play("Jump");
             jumpVelocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
 
