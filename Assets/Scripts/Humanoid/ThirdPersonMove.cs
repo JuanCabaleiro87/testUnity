@@ -69,6 +69,13 @@ public class ThirdPersonMove : MonoBehaviour
             animator.Play("Guard");
         }
 
+        //animacion de golpe de puño
+        if (Input.GetMouseButton(0))
+        {
+            animator.SetBool("Other", false);
+            animator.Play("Punch");
+        }
+
         //salir de guardia
         if (horizontal != 0 || vertical != 0)
         {
