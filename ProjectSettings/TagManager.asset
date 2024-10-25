@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Collectable
   - Coll
+  - golpeImpacto
   layers:
   - Default
   - TransparentFX
